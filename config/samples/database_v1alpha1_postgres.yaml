@@ -1,0 +1,20 @@
+apiVersion: database.devansh.com/v1alpha1
+kind: Postgres
+metadata:
+  labels:
+    app.kubernetes.io/name: postgres
+    app.kubernetes.io/instance: postgres-sample
+    app.kubernetes.io/part-of: database-op
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: database-op
+  name: postgres-sample
+spec:
+  image:
+    name: postgres
+    tag: latest
+    namespace: database-op
+  scale_at:
+    start_hour: 1
+    end_hour: 3
+    replicas: 2
+
